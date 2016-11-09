@@ -10,6 +10,15 @@ def insertion(L):
         L[j+1] = x
     return L
 
+def selection(L):
+    for i in range(0,len(L)-1):
+        iMin = i
+        for j in range(i+1, len(L)):
+            if L[j] < L[iMin]:
+                iMin = j
+        L[i], L[iMin] = L[iMin], L[i]
+    return L
+
 def print_perline(L):
     for i in L:
         print i
@@ -20,6 +29,10 @@ def main():
     L = []
     for i in range(N):
         L.append(int(raw_input()))
-    print_perline(insertion(L))
+    ###
+    L2 = insertion(L)
+    #L2 = selection(L)
+    #print_perline(L2)
+    print L2
 
 main()
